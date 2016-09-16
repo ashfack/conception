@@ -10,12 +10,12 @@ public class Monde {
 
     //private constructor
     private Monde() {
-
+        this.vegetaux = new ArrayList<Vegetal>();
     }
 
     private static Monde instance = new Monde();
 
-    private ArrayList<Vegetal> vegetaux = new ArrayList<Vegetal>();
+    private ArrayList<Vegetal> vegetaux;
 
     public static Monde getInstance()
     {
@@ -24,16 +24,5 @@ public class Monde {
 
     public ArrayList<Vegetal> getVegetaux() {
         return vegetaux;
-    }
-
-    public void setVegetaux(ArrayList<Vegetal> vegetaux) {
-        this.vegetaux = vegetaux;
-    }
-
-    public static void main(String[] args){
-        Monde m = Monde.getInstance();
-        Arbre palmier = new Arbre("palmier");
-        m.getVegetaux().add(palmier);
-        palmier.dessiner();
     }
 }

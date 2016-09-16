@@ -1,29 +1,35 @@
 package world;
 
+import java.util.ArrayList;
+
 /**
  * Created by abdou on 16/09/2016.
  */
 
+// Version 2
+
 public class Arbre extends Vegetal {
-    private String type;
     private int taille;
-    private double[][] texture;
+    private ArbreType type;
 
     public Arbre() {
         super();
-        this.texture = new double[100][100];
-        type = "sans type";
         taille = 100;
     }
 
-    public Arbre(String type) {
-        this.type = type;
+    public Arbre(String name) {
+        this.type = GestionnaireArbreType.getInstance().getArbreType(name);
+        System.out.println("Creation arbre de type "+ type.getName() + " : position (" + x + ","
+                + y + ")" + " taille " + taille);
     }
 
-    public Arbre(String type, int taille, double[][] texture) {
-        this.type = type;
+    public Arbre(String name, int x, int y, int taille) {
+        this.x = x;
+        this.y = y;
         this.taille = taille;
-        this.texture = texture;
+        this.type = GestionnaireArbreType.getInstance().getArbreType(name);
+        System.out.println("Creation arbre de type "+ type.getName() + " : position (" + x + ","
+                + y + ")" + " taille " + taille);
     }
 
     public int getTaille() {
@@ -34,17 +40,9 @@ public class Arbre extends Vegetal {
         this.taille = taille;
     }
 
-    public double[][] getTexture() {
-        return texture;
-    }
-
-    public void setTexture(double[][] texture) {
-        this.texture = texture;
-    }
-
     @Override
     void dessiner() {
-        System.out.println("Dessin arbre de type " + type + " : "  + "position ("
-                + position[0] + ", " + position[1] + ")" + " taille " + taille);
+        System.out.println("Dessin arbre de type " + type.getName() + " : "  + "position ("
+                + x + ", " + y + ")" + " taille " + taille);
     }
 }

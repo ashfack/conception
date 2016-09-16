@@ -6,11 +6,29 @@ package world;
 
 
 public abstract class Vegetal {
-    protected double[] position = new double[2];
+    //    protected double[] position = new double[2];
+    //    ou
+    protected double x;
+    protected double y;
 
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
     abstract void dessiner();
     public Vegetal () {
-        position[0] = 0;
-        position[1] = 10;
+        x = 0;
+        y = 10;
     }
 }
